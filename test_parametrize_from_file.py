@@ -7,7 +7,7 @@ def load_tracks():
         return json.load(f)
 
 
-@pytest.mark.parametrize("track", load_tracks())
+@pytest.mark.parametrize("track", load_tracks(), ids=lambda t: t["title"])
 def test_track_is_valid(track):
     assert "title" in track
     assert "duration" in track
@@ -16,7 +16,7 @@ def test_track_is_valid(track):
     assert track["mood"] in ["calm", "epic", "sad", "happy"]
 
 
-@pytest.mark.parametrize("track", load_tracks())
+@pytest.mark.parametrize("track", load_tracks(), ids=lambda t: t["title"])
 def test_track_title_is_string(track):
     assert isinstance(track["title"], str)
     assert len(track["title"]) > 0
