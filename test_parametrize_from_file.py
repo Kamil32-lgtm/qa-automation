@@ -20,5 +20,3 @@ def test_track_is_valid(track):
 def test_track_title_is_string(track):
     assert isinstance(track["title"], str)
     assert len(track["title"]) > 0
-
-@pytest.mark.parametrize("track", load_tracks(), ids=lambda t: t["title"])
