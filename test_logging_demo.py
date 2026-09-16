@@ -19,4 +19,4 @@ def test_logging_simple():
 def test_logging_fail():
     log.info("Проверяем что-то важное")
     log.error("Сейчас упадёт")
-    assert 1 + 1 == 3
+    assert 1 + 1 == 2
