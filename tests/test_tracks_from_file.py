@@ -1,10 +1,11 @@
 import json
+from pathlib import Path
 
 
 def load_tracks():
-    with open("tracks.json", "r", encoding="utf-8") as f:
+    file_path = Path(__file__).parent / "tracks.json"
+    with open(file_path, "r", encoding="utf-8") as f:
         return json.load(f)
-
 
 def total_duration(tracks):
     total = 0
