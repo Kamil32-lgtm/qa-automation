@@ -74,3 +74,23 @@ def test_top_3_longest():
     assert top[0]["title"] == "Weight of the World"
     assert top[1]["title"] == "Proof of a Hero"
     assert top[2]["title"] == "Devil Trigger"
+    
+    
+def top_3_shortest(tracks):
+    sorted_tracks = sorted(tracks, key=lambda t: t["duration"], reverse=False)
+    return sorted_tracks[:3]
+    
+    
+def test_top_3_shortest():
+    tracks = [
+        {"title": "A", "duration": 215},
+        {"title": "B", "duration": 320},
+        {"title": "C", "duration": 245},
+        {"title": "D", "duration": 290},
+        {"title": "E", "duration": 400},
+    ]
+    top = top_3_shortest(tracks)
+    assert len(top) == 3
+    assert top[0]["title"] == "A"
+    assert top[1]["title"] == "C"
+    assert top[2]["title"] == "D"
