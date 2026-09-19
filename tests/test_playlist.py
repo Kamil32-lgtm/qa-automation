@@ -54,3 +54,23 @@ def test_longest_track():
     longest = longest_track(tracks)
     assert longest["title"] == "Proof of a Hero"
     assert longest["duration"] == 320
+    
+    
+def top_3_longest(tracks):
+    sorted_tracks = sorted(tracks, key=lambda t: t["duration"], reverse=True)
+    return sorted_tracks[:3]
+    
+    
+def test_top_3_longest():
+    tracks = [
+    {"title": "Song of the Ancients", "duration": 215},
+    {"title": "Proof of a Hero", "duration": 320},
+    {"title": "Unshaken", "duration": 245},
+    {"title": "Devil Trigger", "duration": 290},
+    {"title": "Weight of the World", "duration": 400},                   
+]
+    top = top_3_longest(tracks)
+    assert len(top) == 3
+    assert top[0]["title"] == "Weight of the World"
+    assert top[1]["title"] == "Proof of a Hero"
+    assert top[2]["title"] == "Devil Trigger"
